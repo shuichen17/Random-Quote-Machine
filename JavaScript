@@ -1,0 +1,58 @@
+$(document).ready(function() {
+  var quoteDatabase = [
+    {
+      quote:"Don't cry because it's over, smile because it happened.",
+      name:"Dr. Seuss"
+    },
+    {
+      quote:"Be yourself; everyone else is already taken.",
+      name:"Oscar Wilde"
+    },
+    {
+      quote:"So many books, so little time.",
+      name:"Frank Zappa"
+    },
+    {
+      quote:"A room without books is like a body without a soul.",
+      name:"Marcus Tullius Cicero"
+    }
+  ];
+    $('#firstButton').click(function(event){
+			//define the containers of the info we target
+			var quote = $('#quoteContainer p').text();
+			var quoteAuthor = $('#quoteAuthor').text();
+			//prevent browser's default action
+			event.preventDefault();
+			//getting a new random number to attach to a quote and setting a limit
+			
+			var randomNo= Math.floor(Math.random()*quoteDatabase.length);
+			//set a new quote
+			for(i=0;i<=quoteDatabase.length;i++){
+			var newQuoteText = quoteDatabase[randomNo].quote;
+			var newQuoteAuthor = quoteDatabase[randomNo].name;
+			//console.log(newQuoteText,newQuoteGenius);
+      var timeAnimation = 500;
+      var quoteContainer = $('#quoteContainer');
+      //fade out animation with callback
+      quoteContainer.fadeOut(timeAnimation, function(){
+        quoteContainer.html('');
+				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteAuthor">'+'-'+newQuoteAuthor+'</p>');
+        
+        //fadein animation.
+        quoteContainer.fadeIn(timeAnimation);
+      });  
+			
+			break;
+		};//end for loop
+	
+	});//end firstbutton function
+  
+   $('#secondButton').on('click', function(event){
+     var currentQuoteText = $('#quoteContainer').text();
+			var currentQuoteAuthor = $('#quoteAuthor').text();;
+     event.preventDefault();
+     window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(currentQuoteText + '---' + currentQuoteAuthor)); 
+		
+});//end secondButton
+});
+
