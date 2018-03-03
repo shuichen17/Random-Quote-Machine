@@ -1,1 +1,1 @@
-# Random-Quote-Machine
+a random quote generator displays quotations on the screen after a button on the page is clicked. And client can share their favorite quotation to Twitter by clicking SHARE button. The API is from https://forismatic.com/en/ . The live version is currently in https://shuichen17.github.io/Random-Quote-Machine/                
